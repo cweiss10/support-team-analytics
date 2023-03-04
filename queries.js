@@ -32,17 +32,17 @@ var cursor = Math.floor(Math.random() * 10);
 // Search the index and send a click event
 var userTokenQuery = userTokens[cursor] +"";
 //randomize the position of the click
-var position = Math.floor(Math.random() * 20);
+var position = Math.floor(Math.random() * 10);
 index.search('blue shirt', {
     clickAnalytics: true,
     hitsPerPage: 10,
     userToken: userTokenQuery
-    }).then(({ queryID }) => {
+    }).then(({ hits, queryID }) => {
       aa('clickedObjectIDsAfterSearch', {
         userToken: userTokenQuery, 
         eventName: 'cats test click event',
         index: 'fashion_products',
-        objectIDs: ['objectID-1'],
+        objectIDs: [hits[position].objectID],
         queryID : queryID,
         positions: [position]
       });

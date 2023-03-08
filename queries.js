@@ -25,22 +25,21 @@ for (let i = 0; i < 100; i++) {
   var userTokenCursor = Math.floor(Math.random() * 10);
   var userTokenQuery = userTokens.userTokens[userTokenCursor] + "";
 
+
   //randomize the query we send
   var queryCursor = Math.floor(Math.random() * 51)
   var query = data.queries[queryCursor]
-
-  //randomize the click position we send --maybe this is a bad idea?
-  var position = Math.floor(Math.random() * 10);
-
 
   index.search(query, {
     clickAnalytics: true,
     hitsPerPage: 10,
     userToken: userTokenQuery
-  }).then(({ hits, queryID }) => {
+  }).then(({ hits, queryID, params }) => {
+    //randomize the click position we send --maybe this is a bad idea?
+    var position = Math.ceil(Math.random() * 10);
     if (hits[position]) {
       aa('clickedObjectIDsAfterSearch', {
-        userToken: userTokenQuery,
+        userToken: params.substring(params.indexOf('userToken') + 10, params.length),
         eventName: 'cats test click event',
         index: 'fashion_products',
         objectIDs: [hits[position].objectID],

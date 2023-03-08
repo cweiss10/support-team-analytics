@@ -28,8 +28,6 @@ for (let i = 0; i < 100; i++) {
   //randomize the query we send
   var queryCursor = Math.floor(Math.random() * 51)
   var query = data.queries[queryCursor]
-  console.log(query)
-
 
   //randomize the click position we send --maybe this is a bad idea?
   var position = Math.floor(Math.random() * 10);

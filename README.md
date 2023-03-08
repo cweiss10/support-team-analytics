@@ -1,7 +1,7 @@
 # support-team-analytics
 repo to house our analytics and queries code for application Support Team Analytics
 
-#directions to run this on your own
+# directions to run this on your own
 clone the repo on to your machine:
 ```
 git clone --branch cat-weiss-working-branch https://github.com/cweiss10/support-team-analytics.git
